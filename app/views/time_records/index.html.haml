@@ -1,0 +1,21 @@
+= styles_for :time_record
+
+.title_tools
+  = link_to_inline(:create_time_record, new_time_record_path, :text => t(:create_time_record))
+
+.title
+  %span#create_time_record_title #{t :time_records}
+  = image_tag("loading.gif", :size => :thumb, :id => "loading", :style => "display: none;")
+
+.remote#create_time_record{ hidden }
+
+= render 'search'
+
+%ul.list#time_records
+  - if @time_records.length > 0
+    = render :partial => "time_record", :collection => @time_records
+  - else
+    = render "shared/empty"
+
+#paginate= render "shared/paginate_with_per_page"
+#export= render "shared/export"

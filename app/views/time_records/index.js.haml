@@ -1,0 +1,7 @@
+- if @time_records.length > 0
+  $('#time_records').html('#{ j render(:partial => "time_records/time_record", :collection => @time_records) }');
+- else
+  $('#time_records').html('#{ j render(:partial => "shared/empty") }');
+
+$('#paginate').html('#{ j render(:partial => "shared/paginate_with_per_page") }');
+$('#export').html('#{ j render(:partial => "shared/export") }');

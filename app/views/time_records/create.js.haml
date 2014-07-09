@@ -1,0 +1,12 @@
+- if @time_record.persisted?
+  - id = dom_id(@time_record)
+
+  $('#create_time_record_arrow').html(crm.COLLAPSED);
+  $('#create_time_record_title').html('#{ j t(:time_records) }');
+  $('#create_time_record').slideUp(250);
+  $('#time_records').prepend('#{ j (render :partial => "time_record", :collection => [ @time_record ]) }');
+  $('##{id}').effect("highlight", { duration:1500 });
+- else
+  $('#create_time_record').html('#{ j render(:partial => "new") }');
+  $('#create_time_record').effect("shake", { duration:250, distance: 6 });
+  $('#time_record_name').focus();

@@ -1,0 +1,21 @@
+:time_tracking:
+  :tab:
+    :active: false
+    :text: :tab_time_tracking
+    :icon: :fa-clock-o
+    :url:
+      :controller: time_records
+
+time_tracking_rate_names:
+  - :data_entry
+  - :graphic_design
+  - :store_building
+  - :professional_consulting
+  - :custom_programming
+
+time_tracking_rates:
+  :data_entry: 35
+  :store_building: 65
+  :graphic_design: 85
+  :professional_consulting: 95
+  :custom_programming: 195

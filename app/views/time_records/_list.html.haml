@@ -1,0 +1,7 @@
+= section_without_select(object, :time_records)
+
+.list#time_records
+  - time_records = object.time_records.order('updated_at desc').paginate(:page => 1, :per_page => 20)
+  = render :partial => "time_records/time_record", :collection => time_records
+
+= paginate( collection: time_records, id: 'time_records_pagination', params: { action: 'time_records' } )

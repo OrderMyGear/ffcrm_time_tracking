@@ -1,0 +1,39 @@
+= hook(:time_tracking_top_section, self, :f => f) do
+  .section
+    = fields_for(@account) do |a|
+      = a.hidden_field :user_id
+      = a.hidden_field :assigned_to
+      %table
+        %tr
+          %td{colspan: 2}
+            = account_select_or_create(a) do |options|
+              - options[:selected] = @account.id || 0
+              - options[:include_blank] = true
+        %tr
+          %td{style: "width: 170px"}
+            .label #{t :assign_to}:
+            = user_select_for_current_user(:time_record, all_users, current_user)
+          %td
+            .label #{t :project}:
+            = time_record_project_select
+        %tr
+          %td{style: "width: 170px"}
+            .label.req #{t :rate_category}:
+            = f.select :category, @category, { :selected => @time_record.category.blank? ? nil : @time_record.category.to_sym }, { :style => "width:160px" }
+          %td
+            .label #{t :target}:
+            = f.text_field :target, rows: 5, style: 'width: 150px'
+        %tr
+          %td
+            .label.req #{t :date_started}:
+            = f.text_field :date_started, :style => "width:150px;", :autocomplete => :off, :class => 'date'
+          %td
+            .label.req #{t :time_spent}:
+            = f.text_field :time_spent, { :style => "width:150px" }
+        %tr
+          %td{colspan: 2}
+            .label #{t :description}:
+            = f.text_area :description, rows: 5, style: 'width: 320px'
+
+        = hook(:time_tracking_top_section_bottom, self, :f => f)
+

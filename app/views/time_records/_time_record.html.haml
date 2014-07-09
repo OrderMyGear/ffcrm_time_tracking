@@ -1,0 +1,26 @@
+%li.highlight[time_record]
+  .strip{:class => time_record.category }= t(time_record.category)
+
+  %ul.tools
+    - params[:klass_name] = 'time_record'
+    %li= link_to_edit time_record
+    %li= link_to_delete time_record
+
+  .indent
+    == #{t :reported}: #{pluralize(time_record.time_spent, 'hour')}
+    - if (project = time_record.project) && project.id
+      == #{' | '} #{t :project}: #{link_to_if can?(:read, project), project.name, project_path(project)}
+    - if (account = time_record.account) && account.id
+      == #{' | '} #{t :account}: #{link_to_if can?(:read, account), account.name, account_path(account)}
+    - if (assignee = time_record.assignee) && assignee.id
+      == #{' | '} #{t :assignee}: #{link_to_if can?(:read, assignee), assignee.full_name, admin_user_path(assignee)}
+    %tt
+      &ndash;
+      - user_name = time_record.user.try(:full_name)
+      - if user_name
+        = t(:added_by, :time_ago => timeago(time_record.created_at), :user => h(user_name)).html_safe
+      - else
+        = t(:added_ago, :value => timeago(time_record.created_at)).html_safe
+    %dt
+      %b #{t(:description)}:
+      = time_record.description.blank? ? t(:no_description) : time_record.description

@@ -1,0 +1,9 @@
+- id = dom_id(@time_record)
+
+- if params[:cancel].true?
+  $('##{id}').replaceWith('#{ j (render(:partial => "time_record", :collection => [ @time_record ])) }');
+- else
+  crm.highlight_off('#{id}');
+  crm.hide_form('create_time_record');
+  $('##{id}').html('#{ j render(:partial => "edit") }');
+  $('#time_record_name').focus();

@@ -1,0 +1,9 @@
+- id = dom_id(@time_record)
+
+- if @time_record.errors.empty?
+  $('##{id}').replaceWith('#{ j render(:partial => "time_record", :collection => [ @time_record ]) }')
+  $('##{id}').effect("highlight", { duration:1000 });
+- else
+  $('##{id}').html('#{j render(:partial => "edit") }')
+  $('##{id}').effect("shake", { duration:250, distance: 6 });
+  $('#time_record_name').focus()

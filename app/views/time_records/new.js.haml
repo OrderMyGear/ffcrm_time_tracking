@@ -1,0 +1,9 @@
+crm.flip_form('create_time_record');
+
+- unless params[:cancel].true?
+  $('#create_time_record').html('#{ j render(:partial => "new") }');
+  $('#empty').html('');
+  crm.set_title('create_time_record', '#{t(:create_time_record)}');
+  crm.create_or_select_account(#{ request.referer =~ /\/accounts\// || @account.id.blank? });
+- else
+  crm.set_title('create_time_record', '#{t(:time_records)}');

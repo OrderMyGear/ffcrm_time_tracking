@@ -1,0 +1,31 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  tab_time_tracking: Time Tracking
+  time_records: Time Records
+  time_record: Time Record
+  subject_timerecord: time record
+  create_time_record: Record Time
+  no_description: No Description
+  option_rate: Hourly Rate
+  assignee: Assignee
+  reported: Reported
+  rate_category: Rate Category
+  time_spent: Time Spent
+  option_minutes_elapsed: Time Spent
+  minutes_elapsed: Minutes Spent
+  rate: Hourly Rate in USD
+  no_project_assigned: No Project Assigned
+  save_time_record: Save Time Record
+  date_started: Date
+  time_record_small: time record
+  design: Design
+  custom_programming: Custom Programming
+  rfp_support: RFP Support
+  store_admin: Store Admin
+  data_entry: Data Entry
+  store_building: Store Building
+  graphic_design: Graphic Design
+  professional_consulting: Professional Consulting
+  custom_programming: Custom Programming

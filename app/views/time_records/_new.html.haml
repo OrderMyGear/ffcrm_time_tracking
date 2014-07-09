@@ -1,0 +1,11 @@
+
+= form_for(@time_record, :html => one_submit_only.merge({:autocomplete => 'off'}), :remote => true) do |f|
+  = link_to_close new_time_record_path
+
+  = f.error_messages :object_name => t('time_record')
+  = render "time_records/form", :f => f
+
+  .buttonbar
+    = f.submit t(:create_time_record)
+    #{t :or}
+    = link_to_cancel new_time_record_path

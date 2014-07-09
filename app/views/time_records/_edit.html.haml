@@ -1,0 +1,11 @@
+.remote
+  = form_for(@time_record, :html => one_submit_only.merge({:autocomplete => 'off'}), :method => :put, :remote => true) do |f|
+    = link_to_close edit_time_record_path(@time_record)
+
+    = f.error_messages :object_name => t('time_record')
+    = render "time_records/form", :f => f, :edit => true
+
+    .buttonbar
+      = f.submit t(:save_time_record)
+      #{t :or}
+      = link_to_cancel edit_time_record_path(@time_record)

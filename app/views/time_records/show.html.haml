@@ -1,0 +1,12 @@
+- if (template = template_for_current_view)
+  = render(template, :time_record => @time_record)
+- else
+  = render 'time_records/title_bar', :time_record => @time_record
+
+  = render "comments/new", :commentable => @time_record
+  = render :partial => "shared/timeline", :collection => @timeline
+
+  = hook(:show_time_record_bottom, self) do
+
+    = render "versions/versions", :object => @time_record
+
